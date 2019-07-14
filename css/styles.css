@@ -1,0 +1,22 @@
+body {
+    background-color: darkslateblue;
+    font-family: 'Roboto Mono', sans-serif;
+    color: white;
+}
+
+h1 {
+    text-align: center;
+    font-family: 'Roboto Mono', sans-serif;
+    font-size: 3em;
+    margin-bottom: 0px;
+}
+
+footer {
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 12px;
+    position: absolute !important;
+    bottom: 0 !important;
+    width: 100% !important;
+}
+
