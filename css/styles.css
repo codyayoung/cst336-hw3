@@ -8,8 +8,52 @@ h1 {
     text-align: center;
     font-family: 'Roboto Mono', sans-serif;
     font-size: 3em;
-    margin-bottom: 0px;
 }
+
+h4 {
+    text-align: center;
+    margin: 0px auto;
+}
+
+input, select, textarea {
+    font-size: 24px;
+    font-family: 'Roboto Mono', sans-serif;
+    color: white;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    border-bottom: 1px solid white;
+    border-right: 1px solid white;
+    border-top: 1px solid white;
+    border-left: 1px solid white;
+    caret-color: white;
+    margin: 0 auto;
+}
+
+#currencySubmitBtn {
+    width: 200px;
+    height: 50px;
+    border: 0;
+    font-family: 'Roboto Mono', sans-serif, monospace;
+    font-size: 16px;
+    background-color: green;
+}
+
+#toCurrencySelect {
+    width: 100px;
+}
+
+.container {
+    text-align: center;
+    align-content: center;
+    margin: 0px auto;
+}
+
+form, table {
+    align-content: center;
+    position: center;
+    margin : 0px auto;
+ }
 
 footer {
     text-align: center;
@@ -19,4 +63,13 @@ footer {
     bottom: 0 !important;
     width: 100% !important;
 }
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0 auto;
+}
+
 

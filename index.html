@@ -1,17 +1,51 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Image Gallery</title>
+        <title>Currency Converter</title>
         <link href="css/styles.css" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Roboto Mono&display=swap" rel="stylesheet">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="js/currency_convert.js"></script>
+        <script type="text/javascript" src="js/money.js"></script>
     </head>
 
     <h1>Currency Rate Exchange Metrics (C.R.E.A.M.)</h1>
 
     <body>
         <main>
+            <h4>Enter the amount to convert, select currencies, then press 'Convert':</h4>
+            <br><br>
+            
+            <div class="container">
+                <form id="convSubmission" method="post">
+                    <table id="convertTable">
+                        <tr>
+                            <td>
+                                From:
+                            </td>
+                            <td>
+                                <input type="number" name="fromCurr">
+                            </td>
+                            <td>
+                                <select id="fromCurrencySelect"></select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                To:
+                            </td>
+                            <td>
+                                <select id="toCurrencySelect"></select>
+                            </td>
+                        </tr>
+                    </table>
+                    <br><br>
+                    <div id="submitButton">
+                            <input type="submit" id="currencySubmitBtn" value="Convert">
+                    </div>
+                </form>
+            </div>
 
         </main>
             <footer>
@@ -20,7 +54,6 @@
                 <strong>Disclaimer:</strong> The information in this webpage is fictitious.
                 It is used for academic purposes only. <br />
             </footer>
-        <script src="js/img_gallery.js"></script>
     </body>
 
 </html>
