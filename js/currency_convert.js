@@ -9,11 +9,9 @@ $(document).ready(function(){
             data: {"rates": $('#rates').val() },
     
         success: function(result, status) {
-            //console.log(result.rates);
-            for (var i=0; i < result.rates.length; i++) {
-                console.log("loading currencies...");
-                $("#fromCurrencySelect").append("<option>" + result.rates[i] + "</option>");
-            }    
+            $.each(result, function() {
+                $("#fromCurrencySelect").append("<option>" + result.rates + "</option>");
+            });
         }
     }); 
 });
