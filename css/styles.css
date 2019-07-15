@@ -15,10 +15,10 @@ h4 {
     margin: 0px auto;
 }
 
-input, select, textarea {
+input, select, textarea, option {
     font-size: 24px;
     font-family: 'Roboto Mono', sans-serif;
-    color: white;
+    color: pink;
     border: 0;
     outline: 0;
     background: transparent;
@@ -40,7 +40,7 @@ input, select, textarea {
 }
 
 #toCurrencySelect {
-    width: 100px;
+    width: 305px;
 }
 
 .container {

@@ -8,10 +8,16 @@ $(document).ready(function(){
         dataType: "json",
             data: {"rates": $('#rates').val() },
     
-        success: function(result, status) {
-            $.each(result, function() {
-                $("#fromCurrencySelect").append("<option>" + result.rates + "</option>");
+        success: function(result) {
+            $.each(result.rates, function(country, rate) {      //
+                console.log(country);
+                console.log(rate);
+                $("#fromCurrencySelect").append("<option value='"+ rate +"'>" + country + "</option>");
+                $("#toCurrencySelect").append("<option value='"+ rate +"'>" + country + "</option>");
             });
         }
     }); 
 });
+
+// Changes base rates based on user selection 
+
