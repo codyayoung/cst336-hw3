@@ -6,11 +6,11 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto Mono&display=swap" rel="stylesheet">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-        <script type="text/javascript" src="js/currency_convert.js"></script>
         <script type="text/javascript" src="js/money.js"></script>
+        <script type="text/javascript" src="js/currency_convert.js"></script>
     </head>
 
-    <h1>Currency Rate Exchange Metrics (C.R.E.A.M.)</h1>
+    <h1>Currency Rate ExchAnge Metrics (C.R.E.A.M.)</h1>
 
     <body>
         <main>
@@ -25,10 +25,12 @@
                                 From:
                             </td>
                             <td>
-                                <input type="number" name="fromCurr">
+                                <input type="number" name="fromCurr" min="0">
                             </td>
                             <td>
-                                <select id="fromCurrencySelect"></select>
+                                <select id="fromCurrencySelect">
+                                    <option value="">Select </option>
+                                </select>
                             </td>
                         </tr>
                         <tr>
@@ -36,13 +38,15 @@
                                 To:
                             </td>
                             <td>
-                                <select id="toCurrencySelect"></select>
+                                <select id="toCurrencySelect">
+                                    <option value="">Select </option>
+                                </select>
                             </td>
                         </tr>
                     </table>
                     <br><br>
                     <div id="submitButton">
-                            <input type="submit" id="currencySubmitBtn" value="Convert">
+                            <input type="button" id="currencySubmitBtn" value="Convert">
                     </div>
                 </form>
             </div>
@@ -55,7 +59,7 @@
                 It is used for academic purposes only. <br />
             </footer>
     </body>
-
+    
 </html>
 
 
