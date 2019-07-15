@@ -81,7 +81,7 @@ $.getJSON(
 
  $(document).on('click', '#currencySubmitBtn', function() {
      //Testing money.js
-     var money = fx(1000).convert({from:"USD", to:"GBP"});
+     var money = fx(1000).convert({from:$("#fromCurrencySelect :selected").text(), to:$("#toCurrencySelect :selected").text()});
      console.log(money);
  });
 
