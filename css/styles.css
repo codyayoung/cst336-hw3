@@ -22,7 +22,10 @@ a:link {
 
 a:hover {
     color: yellow;
-    text-decoration: none;
+}
+
+a:visited {
+    color: inherit;
 }
 
 input, select, textarea, option {
