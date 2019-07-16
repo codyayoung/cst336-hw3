@@ -1,7 +1,7 @@
 var initial_base = "USD";
 var valid = true;
 
-// On window load, populates currency select menus 
+// On window load, populates currency select menus and gets current exchange rates
 $(document).ready(function(){
     $.ajax({
         method: "GET",
@@ -16,31 +16,31 @@ $(document).ready(function(){
                 $("#fromCurrencySelect").append("<option value='"+ rate +"'>" + country + "</option>");
                 $("#toCurrencySelect").append("<option value='"+ rate +"'>" + country + "</option>");
             });
-            console.log("Rates loaded successfully.");
 
             var dt = new Date().toString();
              $("#timestamp").html(dt);
         }
     }); 
-});
 
-$.getJSON(
-    // Load exchange rate values 
-    'https://api.exchangeratesapi.io/latest?base=USD',
-    function(data) {
-        // Check money.js has finished loading:
-        if ( typeof fx !== "undefined" && fx.rates ) {
-            fx.rates = data.rates;
-            fx.base = data.base;
-        } else {
-            // If not, apply to fxSetup global:
-            var fxSetup = {
-                rates : data.rates,
-                base : data.base
+    $.getJSON(
+        // Load exchange rate values 
+        'https://api.exchangeratesapi.io/latest?base=USD',
+        function(data) {
+            // Check money.js has finished loading:
+            if ( typeof fx !== "undefined" && fx.rates ) {
+                fx.rates = data.rates;
+                fx.base = data.base;
+            } else {
+                // If not, apply to fxSetup global:
+                var fxSetup = {
+                    rates : data.rates,
+                    base : data.base
+                }
             }
+        console.log("Rates loaded successfully.");
         }
-    }
-);
+    );
+});
 
 $(document).on('change', '#fromCurrInput', function(){
     if ($("#fromCurrInput").val().length > 0) {
