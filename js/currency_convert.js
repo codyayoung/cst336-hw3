@@ -1,4 +1,5 @@
 var initial_base = "USD";
+var valid = true;
 
 // On window load, populates currency select menus 
 $(document).ready(function(){
@@ -15,11 +16,16 @@ $(document).ready(function(){
                 $("#fromCurrencySelect").append("<option value='"+ rate +"'>" + country + "</option>");
                 $("#toCurrencySelect").append("<option value='"+ rate +"'>" + country + "</option>");
             });
+            console.log("Rates loaded successfully.");
+
+            var dt = new Date().toString();
+             $("#timestamp").html(dt);
         }
     }); 
 });
 
 $.getJSON(
+    // Load exchange rate values 
     'https://api.exchangeratesapi.io/latest?base=USD',
     function(data) {
         // Check money.js has finished loading:
@@ -35,6 +41,13 @@ $.getJSON(
         }
     }
 );
+
+$(document).on('change', '#fromCurrInput', function(){
+    if ($("#fromCurrInput").val().length > 0) {
+        $("inputError").html("");
+        valid = true;
+    }
+});
 
 // Updates exchange rates from API based on user selection
  $(document).on('change', '#fromCurrencySelect', function(){
@@ -55,8 +68,6 @@ $.getJSON(
         }
 
     });
-
-
  });
 
  $(document).on('change', '#toCurrencySelect', function(){
@@ -80,8 +91,45 @@ $.getJSON(
  });
 
  $(document).on('click', '#currencySubmitBtn', function() {
-     //Testing money.js
-     var money = fx(1000).convert({from:$("#fromCurrencySelect :selected").text(), to:$("#toCurrencySelect :selected").text()});
+     
+    if (!validParams()) {
+        event.preventDefault();
+    }
+
+     var convertInput = parseFloat($("#fromCurrInput").val());
+     var money = fx(convertInput).convert({from:$("#fromCurrencySelect :selected").text(), to:$("#toCurrencySelect :selected").text()});
      console.log(money);
+     
+     // User amount + currency = End amount + target currency
+     if (validParams()) {
+        $("#inputError").html(" ");
+        $("#convertResult").html($("#fromCurrInput").val() + " " + $("#fromCurrencySelect :selected").text() + " = " + money.toFixed(2) + " " + $("#toCurrencySelect :selected").text());
+        $("#convertResult").css("color", "greenyellow");
+     }
+     else {
+         $("#convertResult").html(" ");
+         $("#convertResult").html("Invalid");
+     } 
  });
+
+ function validParams() {
+
+     if ($("#fromCurrInput").val().length == 0) {
+         valid = false;
+         $("#inputError").html("Error: Amount required.");
+         $("#inputError").css("color", "red");
+
+         $("#convertResult").html("Invalid");
+         $("#convertResult").css("color", "red");
+
+     }
+
+     if ($("#fromCurrInput").val() < 0) {
+         valid = false;
+         $("#inputError").html("Error: Negative amount.");
+         $("#inputError").css("color", "red");
+     }
+
+     return valid;
+ }
 

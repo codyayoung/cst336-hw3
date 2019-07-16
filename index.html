@@ -15,6 +15,7 @@
     <body>
         <main>
             <h4>Enter the amount to convert, select currencies, then press 'Convert':</h4>
+            <h4>Rates updated from <a href="https://exchangeratesapi.io/">exchangeratesapi.io</a> as of <span id="timestamp"></span></h4>
             <br><br>
             
             <div class="container">
@@ -25,12 +26,13 @@
                                 From:
                             </td>
                             <td>
-                                <input type="number" name="fromCurr" min="0">
+                                <input type="number" id="fromCurrInput" min="0">
                             </td>
                             <td>
                                 <select id="fromCurrencySelect">
                                     <option value="">Select </option>
                                 </select>
+                                
                             </td>
                         </tr>
                         <tr>
@@ -51,12 +53,22 @@
                 </form>
             </div>
 
+            <br><br><br><br>
+            <div class="resultMessage">
+                <span id="convertResult"></span>
+            </div>
+
+            <br><br>
+            <div class="errorMessage">
+                <span id="inputError"></span>
+            </div>
+
         </main>
             <footer>
                 <div class='container text-center'></div>
                 CST 336 Internet Programming - 2019&copy; Young <br />
-                <strong>Disclaimer:</strong> The information in this webpage is fictitious.
-                It is used for academic purposes only. <br />
+                <strong>Disclaimer:</strong> The information on this webpage is not fictitious,
+                but it is for academic purposes only. <br />
             </footer>
     </body>
     
